@@ -13,7 +13,7 @@ with open('config.yml', 'r') as f:
 
 def generate_glove_file():
     codraw_vocab = keys['codraw_vocab']
-    clevr_vocab = keys['iclevr_vocab']
+    # clevr_vocab = keys['iclevr_vocab']
     output_file = keys['glove_output']
     original_glove = keys['glove_source']
 
@@ -22,13 +22,13 @@ def generate_glove_file():
         codraw_vocab = f.readlines()
         codraw_vocab = [x.strip().rsplit(' ', 1)[0] for x in codraw_vocab]
 
-    # read i-CLEVR vocabulary
-    with open(clevr_vocab, 'r') as f:
-        clevr_vocab = f.readlines()
-        clevr_vocab = [x.strip().rsplit(' ', 1)[0] for x in clevr_vocab]
+    # # read i-CLEVR vocabulary
+    # with open(clevr_vocab, 'r') as f:
+    #     clevr_vocab = f.readlines()
+    #     clevr_vocab = [x.strip().rsplit(' ', 1)[0] for x in clevr_vocab]
 
     # combine vocabularies and add special tokens for CoDraw Drawer and Teller
-    codraw_vocab += clevr_vocab + ['<drawer>', '<teller>']
+    codraw_vocab += ['<drawer>', '<teller>']
     codraw_vocab = list(set(codraw_vocab))
     codraw_vocab.sort()
 

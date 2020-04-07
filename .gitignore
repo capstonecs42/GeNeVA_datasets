@@ -4,6 +4,6 @@
 *.zip
 .DS_store
 GeNeVA-v1/
-
+.idea/
 data/
 raw-data/
