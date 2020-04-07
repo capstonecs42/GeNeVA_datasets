@@ -2,7 +2,7 @@
 *.rar
 *.swp
 *.zip
-
+.DS_store
 GeNeVA-v1/
 
 data/
