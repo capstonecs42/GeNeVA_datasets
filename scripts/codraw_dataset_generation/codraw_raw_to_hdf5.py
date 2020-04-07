@@ -79,6 +79,7 @@ def create_h5():
     c_val = 0
     c_test = 0
     for scene_file in tqdm(sorted(glob('{}/*json'.format(scenes_path)))):
+        print("Scene_file is {}".format(scene_file))
         # identify if scene belongs to train / val / test
         split = scene_file.split('/')[-1].split('_')[0]
 

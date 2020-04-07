@@ -58,6 +58,7 @@ def create_object_detection_dataset():
     c_test = -1
     for scene_file in tqdm(sorted(glob('{}/*json'.format(scenes_path)))):
         # identify if scene belongs to train / val / test
+        print("Scene_file is {}".format(scene_file))
         split = scene_file.split('/')[-1].split('_')[0]
 
         with open(scene_file, 'r') as f:
