@@ -25,7 +25,7 @@ fi
 # get CoDraw GitHub repository
 if [ ! -d raw-data/CoDraw/asset ]
 then
-    git clone https://github.com/facebookresearch/CoDraw.git raw-data/CoDraw
+    git clone https://github.com/capstonecs42/CoDraw.git raw-data/CoDraw
 fi
 
 # get CoDraw individual json files
