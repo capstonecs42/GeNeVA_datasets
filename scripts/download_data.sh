@@ -40,7 +40,6 @@ then
             chmod +x gdown.pl
         fi
         ./gdown.pl https://drive.google.com/file/d/0B-u9nH58139bTy1XRFdqaVEzUGs/view dataset/CoDraw_1_0.json
-        rm gdown.pl
     fi
     python script/preprocess.py dataset/CoDraw_1_0.json
     rm dataset/CoDraw_1_0.json
@@ -50,8 +49,8 @@ fi
 # get CoDraw background image and object names
 if [ ! -f raw-data/CoDraw/background.png ]
 then
-    download https://vision.ece.vt.edu/clipart/dataset/AbstractScenes_v1.1.zip
-    unzip -j AbstractScenes_v1.1.zip AbstractScenes_v1.1/Pngs/background.png -d raw-data/CoDraw
-    unzip -j AbstractScenes_v1.1.zip AbstractScenes_v1.1/VisualFeatures/10K_instance_occurence_58_names.txt -d raw-data/CoDraw
-    rm AbstractScenes_v1.1.zip
+    ./gdown.pl https://drive.google.com/file/d/1tJjvMFRSCR5lkQBpKnlP6XKrXwcQS2sU/view?usp=sharing ./bg_names.zip
+    unzip -j bg_names.zip AbstractScenes_v1.1/Pngs/background.png -d raw-data/CoDraw
+    unzip -j bg_names.zip AbstractScenes_v1.1/VisualFeatures/10K_instance_occurence_58_names.txt -d raw-data/CoDraw
+    rm bg_names.zip
 fi
