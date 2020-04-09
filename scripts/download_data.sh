@@ -51,7 +51,8 @@ if [ ! -f raw-data/CoDraw/background.png ]
 then
     mv raw-data/CoDraw/gdown.pl ./gdown.pl
     ./gdown.pl https://drive.google.com/file/d/1tJjvMFRSCR5lkQBpKnlP6XKrXwcQS2sU/view?usp=sharing ./bg_names.zip
-    unzip -j bg_names.zip AbstractScenes_v1.1/Pngs/background.png -d raw-data/CoDraw
-    unzip -j bg_names.zip AbstractScenes_v1.1/VisualFeatures/10K_instance_occurence_58_names.txt -d raw-data/CoDraw
+    unzip -j bg_names.zip background.png -d raw-data/CoDraw
+    unzip -j bg_names.zip 10K_instance_occurence_58_names.txt -d raw-data/CoDraw
     rm bg_names.zip
+    rm gdown.pl
 fi
