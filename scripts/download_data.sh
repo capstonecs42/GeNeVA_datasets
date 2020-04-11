@@ -13,18 +13,6 @@ function download () {
     wget $URL -P $TGTDIR
 }
 
-# GloVe data
-if [ ! -f raw-data/GloVe/glove.840B.300d.txt ]
-then
-    if [ ! -f gdown.pl ]
-        then
-            wget https://raw.githubusercontent.com/circulosmeos/gdown.pl/master/gdown.pl
-            chmod +x gdown.pl
-    fi
-    mkdir --parents raw-data/GloVe
-    ./gdown.pl https://drive.google.com/file/d/1tgJnWt19Gs--wt-NCrKBEnruwRpbOVq-/view raw-data/GloVe/glove.840B.300d.txt
-    rm gdown.pl
-fi
 
 # get CoDraw GitHub repository
 if [ ! -d raw-data/CoDraw/asset ]
@@ -48,12 +36,4 @@ then
     python script/preprocess.py dataset/CoDraw_1_0.json
     rm dataset/CoDraw_1_0.json
     cd ../../
-fi
-
-# get CoDraw background image and object names
-if [ ! -f raw-data/CoDraw/background.png ]
-then
-    mv raw-data/CoDraw/gdown.pl ./gdown.pl
-    ./gdown.pl https://drive.google.com/file/d/1tJjvMFRSCR5lkQBpKnlP6XKrXwcQS2sU/view?usp=sharing ./bg_names.zip
-    rm ./gdown.pl
 fi
